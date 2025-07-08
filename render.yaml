@@ -2,8 +2,16 @@ services:
   - type: web
     name: plataforma-concurso
     env: python
+    region: oregon
     plan: free
-    buildCommand: ""
-    startCommand: gunicorn app:app
     runtime: python
-    pythonVersion: 3.10
+    buildCommand: ""
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+    buildFilter:
+      paths:
+        - requirements.txt
+        - app.py
+        - render.yaml
