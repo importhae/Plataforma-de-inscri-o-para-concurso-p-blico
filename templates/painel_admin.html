@@ -1,0 +1,24 @@
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="login-box">
+        <div class="logo">Admin</div>
+        <h2>Painel Administrativo</h2>
+        <a href="/lancar_gabarito">Lançar Gabarito</a><br>
+        <a href="/corrigir">Corrigir Provas</a><br>
+        <a href="/exportar">Exportar Excel</a><br><br>
+        <h3>Candidatos Inscritos</h3>
+        <ul>
+        {% for c in candidatos %}
+            <li>{{ c.nome }} - CPF: {{ c.cpf }} - Nota: {{ c.nota if c.nota else 'N/A' }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

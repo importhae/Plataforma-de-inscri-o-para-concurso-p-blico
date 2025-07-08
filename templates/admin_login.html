@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+{% block title %}Login Admin{% endblock %}
+{% block content %}
+<h2>Login do Administrador</h2>
+<form method="POST">
+    Usuário: <input type="text" name="user"><br>
+    Senha: <input type="password" name="pwd"><br>
+    <input type="submit" value="Entrar">
+</form>
+{% endblock %}

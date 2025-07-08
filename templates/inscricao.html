@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscrição - Colégio Militar</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        form { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+        input, select { width: 100%; padding: 10px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <h2>Formulário de Inscrição</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <h3>🧒 Dados do Candidato</h3>
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="text" name="cpf" placeholder="CPF" required>
+        <input type="date" name="data_nascimento" required>
+        <select name="sexo" required>
+            <option value="">Sexo</option>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+        </select>
+        <input type="text" name="nacionalidade" placeholder="Nacionalidade" required>
+        <input type="text" name="naturalidade" placeholder="Naturalidade" required>
+
+        <h3>👨‍👩‍👧 Responsável</h3>
+        <input type="text" name="nome_responsavel" placeholder="Nome do responsável" required>
+        <input type="text" name="cpf_responsavel" placeholder="CPF do responsável" required>
+        <input type="text" name="parentesco" placeholder="Parentesco" required>
+        <input type="text" name="telefone_responsavel" placeholder="Telefone" required>
+        <input type="email" name="email_responsavel" placeholder="E-mail" required>
+
+        <h3>🏠 Endereço</h3>
+        <input type="text" name="cep" placeholder="CEP" required>
+        <input type="text" name="endereco" placeholder="Rua / Avenida" required>
+        <input type="text" name="numero" placeholder="Número" required>
+        <input type="text" name="complemento" placeholder="Complemento">
+        <input type="text" name="bairro" placeholder="Bairro" required>
+        <input type="text" name="cidade" placeholder="Cidade" required>
+        <input type="text" name="estado" placeholder="Estado (UF)" required>
+
+        <h3>🏫 Colégio</h3>
+        <select name="colegio" required>
+            <option value="">Selecione o Colégio Militar</option>
+            <option>Recife</option>
+            <option>Brasília</option>
+            <option>Belo Horizonte</option>
+            <option>Fortaleza</option>
+            <option>Campo Grande</option>
+            <option>Manaus</option>
+            <option>Porto Alegre</option>
+            <option>Salvador</option>
+            <option>Rio de Janeiro</option>
+            <option>Juiz de Fora</option>
+        </select>
+
+        <h3>📎 Documentos</h3>
+        <label>Documento do candidato (certidão ou RG):</label><input type="file" name="doc_identidade" required>
+        <label>Documento do responsável:</label><input type="file" name="doc_responsavel" required>
+        <label>Comprovante de residência:</label><input type="file" name="comprovante_residencia" required>
+        <label>Declaração escolar:</label><input type="file" name="declaracao_escolar" required>
+        <label>Foto 3x4:</label><input type="file" name="foto" required>
+
+        <h3>🔐 Acesso</h3>
+        <input type="password" name="senha" placeholder="Crie uma senha de acesso" required>
+
+        <button type="submit">Finalizar Inscrição</button>
+    </form>
+</body>
+</html>

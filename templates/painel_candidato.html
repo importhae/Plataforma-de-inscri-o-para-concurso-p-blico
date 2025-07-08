@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel do Candidato</title>
+    <style>
+        body { font-family: Arial; background: #f7f7f7; padding: 20px; }
+        .box { background: white; max-width: 600px; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+        button { padding: 10px 20px; margin-top: 15px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .alert { padding: 15px; background-color: #dff0d8; color: #3c763d; margin-top: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Olá, {{ candidato.nome }}!</h2>
+
+        {% if not candidato.pago %}
+            <p>💳 Sua inscrição ainda <strong>não foi paga</strong>.</p>
+            <form action="{{ url_for('pagar') }}">
+                <button type="submit">Realizar Pagamento via PIX</button>
+            </form>
+        {% else %}
+            <div class="alert">
+                ✅ Pagamento confirmado! Agora você pode realizar a prova.
+            </div>
+        {% endif %}
+
+        {% if candidato.pago %}
+            <a href="{{ url_for('prova') }}"><button>Iniciar Prova</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>
