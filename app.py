@@ -22,13 +22,11 @@ class Candidato(db.Model):
     sexo = db.Column(db.String(20))
     nacionalidade = db.Column(db.String(50))
     naturalidade = db.Column(db.String(50))
-
     nome_responsavel = db.Column(db.String(100))
     cpf_responsavel = db.Column(db.String(20))
     parentesco = db.Column(db.String(50))
     telefone_responsavel = db.Column(db.String(30))
     email_responsavel = db.Column(db.String(100))
-
     cep = db.Column(db.String(10))
     endereco = db.Column(db.String(200))
     numero = db.Column(db.String(20))
@@ -36,16 +34,13 @@ class Candidato(db.Model):
     bairro = db.Column(db.String(100))
     cidade = db.Column(db.String(100))
     estado = db.Column(db.String(2))
-
     colegio = db.Column(db.String(100))
     senha = db.Column(db.String(100))
-
     doc_identidade = db.Column(db.String(200))
     doc_responsavel = db.Column(db.String(200))
     comprovante_residencia = db.Column(db.String(200))
     declaracao_escolar = db.Column(db.String(200))
     foto = db.Column(db.String(200))
-
     pago = db.Column(db.Boolean, default=False)
     respostas = db.Column(db.String(100))
     nota = db.Column(db.Float)
@@ -195,14 +190,15 @@ def exportar():
     output.seek(0)
     return send_file(output, download_name="resultados.xlsx", as_attachment=True)
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
-
 def salvar_arquivo(file, pasta):
     if file and file.filename:
+        os.makedirs(pasta, exist_ok=True)  # Garante que a pasta exista
         path = os.path.join(pasta, secure_filename(file.filename))
         file.save(path)
         return path
     return None
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True)
